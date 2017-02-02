@@ -497,4 +497,6 @@ public class Settings extends SettingsActivity {
 
     // Mistify Additoon
     public static class MistifyActivity extends SettingsActivity {}
+
+    public static class DevRunningServicesActivity extends SettingsActivity { /* empty */ }
 }
