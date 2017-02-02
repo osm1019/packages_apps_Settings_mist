@@ -501,4 +501,12 @@ public class Settings extends SettingsActivity {
      * Activity for PreviouslyConnectedDeviceDashboardFragment
      */
     public static class PreviouslyConnectedDevicesActivity extends SettingsActivity { /* empty */ }
+<<<<<<< HEAD
+=======
+
+    // SuperiorLab Additoon
+    public static class SuperiorLabActivity extends SettingsActivity {}
+
+    public static class DevRunningServicesActivity extends SettingsActivity { /* empty */ }
+>>>>>>> be61b4aa618 (Allow to quickly open Running Services from meminfo view)
 }
