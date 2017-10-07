@@ -57,6 +57,13 @@
         android:title="@string/smart_battery_manager_title"
         settings:controller="com.android.settings.fuelgauge.batterytip.BatteryManagerPreferenceController"
         settings:keywords="@string/keywords_battery_adaptive_preferences" />
+    <!-- Battery light -->
+    <Preference
+        android:key="battery_lights"
+        android:title="@string/battery_light_title"
+        android:summary="@string/battery_light_summary"
+        android:fragment="com.android.settings.mist.notificationlight.BatteryLightSettings"
+        settings:controller="com.android.settings.mist.notificationlight.BatteryLightPreferenceController" />
 
     <SwitchPreferenceCompat
         android:key="battery_percentage"
