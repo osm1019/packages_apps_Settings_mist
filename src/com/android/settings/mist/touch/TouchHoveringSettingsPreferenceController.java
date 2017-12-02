@@ -14,31 +14,31 @@
  * limitations under the License
  */
 
-package com.android.settings.cherish.touch;
+package com.android.settings.mist.touch;
 
 import android.content.Context;
-import com.android.internal.cherish.hardware.LineageHardwareManager;
+import com.android.internal.mist.hardware.LineageHardwareManager;
 import com.android.settings.core.BasePreferenceController;
 
-public class HighTouchSensitivitySettingsPreferenceController extends BasePreferenceController {
+public class TouchHoveringSettingsPreferenceController extends BasePreferenceController {
 
-    public static final String KEY = "high_touch_sensitivity_enable";
+    public static final String KEY = "feature_touch_hovering";
 
     private final LineageHardwareManager mHardware;
 
-    public HighTouchSensitivitySettingsPreferenceController(Context context, String preferenceKey) {
+    public TouchHoveringSettingsPreferenceController(Context context, String preferenceKey) {
         super(context, preferenceKey);
 
         mHardware = LineageHardwareManager.getInstance(context);
     }
 
-    public HighTouchSensitivitySettingsPreferenceController(Context context) {
+    public TouchHoveringSettingsPreferenceController(Context context) {
         this(context, KEY);
     }
 
     @Override
     public int getAvailabilityStatus() {
-        if (!mHardware.isSupported(LineageHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)){
+        if (!mHardware.isSupported(LineageHardwareManager.FEATURE_TOUCH_HOVERING)){
             return UNSUPPORTED_ON_DEVICE;
         }
         return AVAILABLE;

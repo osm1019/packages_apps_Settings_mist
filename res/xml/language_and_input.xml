@@ -109,12 +109,12 @@
             android:title="@string/pointer_speed"
             android:dialogTitle="@string/pointer_speed" />
 
-        <com.cherish.settings.preferences.SecureSettingSwitchPreference
+        <com.mist.settings.preferences.SecureSettingSwitchPreference
             android:key="feature_touch_hovering"
             android:title="@string/touchscreen_hovering_title"
             android:summary="@string/touchscreen_hovering_summary"
             android:defaultValue="false"
-            settings:controller="com.android.settings.derp.touch.TouchHoveringSettingsPreferenceController" />
+            settings:controller="com.android.settings.mist.touch.TouchHoveringSettingsPreferenceController" />
 
     </PreferenceCategory>
 

@@ -204,12 +204,20 @@
             android:title="@string/display_cutout_emulation"
             settings:keywords="@string/display_cutout_emulation_keywords" />
 
-        <com.cherish.settings.preferences.SystemSettingSwitchPreference
+        <!-- Prevent accidental wake-up -->
+        <com.mist.settings.preferences.SystemSettingSwitchPreference
+            android:key="proximity_on_wake"
+            android:title="@string/proximity_wake_title"
+            android:summary="@string/proximity_wake_summary"
+            android:defaultValue="@*android:bool/config_proximityCheckOnWakeEnabledByDefault"
+            settings:requiresConfig="@*android:bool/config_proximityCheckOnWake" />
+
+        <com.mist.settings.preferences.SystemSettingSwitchPreference
             android:key="high_touch_sensitivity_enable"
             android:title="@string/high_touch_sensitivity_title"
             android:summary="@string/high_touch_sensitivity_summary"
             android:defaultValue="false"
-            settings:controller="com.android.settings.cherish.touch.HighTouchSensitivitySettingsPreferenceController" />
+            settings:controller="com.android.settings.mist.touch.HighTouchSensitivitySettingsPreferenceController" />
 
         <ListPreference
             android:key="theme"
