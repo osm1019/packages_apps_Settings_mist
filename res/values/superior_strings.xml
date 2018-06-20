@@ -29,4 +29,7 @@
           <xliff:g id="version_num">%1$s</xliff:g>
      </string>
 
+     <!-- Hardware info -->
+     <string name="platform_revision">Platform</string>
+     <string name="total_ram">Total RAM</string>
 </resources>
