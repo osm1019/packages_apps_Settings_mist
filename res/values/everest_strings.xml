@@ -72,4 +72,7 @@
      <string name="mistify_dash_title">Mistify Tweak</string>
      <string name="mistify_summary">Infinity exist everywhere!!</string>
 
+    <!-- Density category -->
+    <string name="density_category">Density options</string>
+
 </resources>
