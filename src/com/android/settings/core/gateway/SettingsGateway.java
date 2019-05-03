@@ -203,6 +203,8 @@ import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import com.mist.mistify.Mistify;
 
+import com.android.settings.livedisplay.LiveDisplaySettings;
+
 public class SettingsGateway {
 
     /**
@@ -393,6 +395,7 @@ public class SettingsGateway {
             VibrationIntensitySettingsFragment.class.getName(),
             Mistify.class.getName(),
             RunningServices.class.getName(),
+            LiveDisplaySettings.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
