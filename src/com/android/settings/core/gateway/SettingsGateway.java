@@ -181,6 +181,7 @@ import com.android.settings.wifi.tether.WifiTetherSettings;
 import com.android.settings.livedisplay.LiveDisplaySettings;
 
 import ink.kscope.settings.wifi.tether.WifiTetherClientManager;
+import com.mist.settings.fragments.SmartPixels;
 
 public class SettingsGateway {
 
@@ -350,7 +351,8 @@ public class SettingsGateway {
             TurnScreenOnSettings.class.getName(),
             TurnScreenOnDetails.class.getName(),
             LiveDisplaySettings.class.getName(),
-            WifiTetherClientManager.class.getName()
+            WifiTetherClientManager.class.getName(),
+            SmartPixels.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -393,7 +395,7 @@ public class SettingsGateway {
             Settings.MyDeviceInfoActivity.class.getName(),
             Settings.ModuleLicensesActivity.class.getName(),
             UserBackupSettingsActivity.class.getName(),
-            Settings.CherishSettingsActivity.class.getName(),
-            Settings.PreviouslyConnectedDeviceDashboardActivity.class.getName()
+            Settings.PreviouslyConnectedDeviceDashboardActivity.class.getName(),
+            Settings.SmartPixelsActivity.class.getName(),
     };
 }
