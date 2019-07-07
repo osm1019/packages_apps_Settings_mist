@@ -202,6 +202,7 @@ import com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSetting
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import com.mist.settings.MistSettings;
+import com.mist.settings.fragments.SmartPixels;
 
 public class SettingsGateway {
 
@@ -392,7 +393,8 @@ public class SettingsGateway {
             ScreenTimeoutSettings.class.getName(),
             ResetNetwork.class.getName(),
             VibrationIntensitySettingsFragment.class.getName(),
-            MistSettings.class.getName()
+            MistSettings.class.getName(),
+            SmartPixels.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -439,6 +441,13 @@ public class SettingsGateway {
             UserBackupSettingsActivity.class.getName(),
             Settings.MemtagPageActivity.class.getName(),
             Settings.NavigationModeSettingsActivity.class.getName(),
+<<<<<<< HEAD
             Settings.MistSettingsActivity.class.getName(),
+=======
+            Settings.CherishSettingsActivity.class.getName(),
+            Settings.FirmwareVersionActivity.class.getName(),
+            Settings.WallpaperSettingsActivity.class.getName(),
+            Settings.SmartPixelsActivity.class.getName(),
+>>>>>>> f3ababe8163 (Fix long click intent for Smart Pixels tile [2/2])
     };
 }
