@@ -29,7 +29,9 @@ import com.android.settings.core.BasePreferenceController;
 public class MistVersionPreferenceController extends BasePreferenceController {
 
     @VisibleForTesting
-    static final String MIST_VERSION_PROPERTY = "ro.mist.display.version";
+    static final String MIST_VERSION_PROPERTY = "ro.mist.base.version";
+    static final String MIST_BUILDTYPE_PROPERTY = "ro.mist.buildtype";
+    static final String MIST_EDITION_PROPERTY = "ro.mist.edition";
 
     public MistVersionPreferenceController(Context context, String preferenceKey) {
         super(context, preferenceKey);
@@ -37,12 +39,20 @@ public class MistVersionPreferenceController extends BasePreferenceController {
 
     @Override
     public int getAvailabilityStatus() {
-        return !TextUtils.isEmpty(SystemProperties.get(MIST_VERSION_PROPERTY)) ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
+        return !TextUtils.isEmpty(SystemProperties.get(MIST_VERSION_PROPERTY)) && !TextUtils.isEmpty(SystemProperties.get(MIST_BUILDTYPE_PROPERTY)) && !TextUtils.isEmpty(SystemProperties.get(MIST_EDITION_PROPERTY))
+                ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
     }
 
     @Override
     public CharSequence getSummary() {
-        return SystemProperties.get(MIST_VERSION_PROPERTY,
-                mContext.getString(R.string.device_info_default));
+        String mistVersion = SystemProperties.get(MIST_VERSION_PROPERTY);
+        String mistBuildType = SystemProperties.get(MIST_BUILDTYPE_PROPERTY);
+        String mistEdition = SystemProperties.get(MIST_EDITION_PROPERTY);
+        if (!mistVersion.isEmpty() && !mistBuildType.isEmpty() && !mistEdition.isEmpty()) {
+            return mistVersion + " | " + mistBuildType + " | " + mistEdition;
+        } else {
+            return
+                mContext.getString(R.string.device_info_default);
+        }
     }
 }
