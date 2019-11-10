@@ -80,7 +80,7 @@
         settings:controller="com.android.settings.deviceinfo.firmwareversion.KernelVersionPreferenceController"/>
 
     <!-- Build -->
-    <!-- <Preference
+    <!--Preference
         android:key="os_build_number"
         android:title="@string/build_number"
         android:summary="@string/summary_placeholder"
