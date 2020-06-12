@@ -81,7 +81,6 @@
     <com.android.settings.widget.HomepagePreference
         android:key="top_level_mistify"
         android:title="@string/mistify_dash_title"
-        android:summary="@string/mistify_summary"
         android:icon="@drawable/ic_settings_mistify"
         android:order="-110"
         android:fragment="com.mist.mistify.Mistify"/>
