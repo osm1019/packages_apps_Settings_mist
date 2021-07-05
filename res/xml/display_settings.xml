@@ -189,7 +189,7 @@
             android:title="@string/tap_to_wake"
             android:summary="@string/tap_to_wake_summary"/>
 
-        <com.cherish.settings.preferences.SystemSettingSwitchPreference
+        <com.mist.settings.preferences.SystemSettingSwitchPreference
             android:key="proximity_on_wake"
             android:title="@string/proximity_wake_title"
             android:summary="@string/proximity_wake_summary"
@@ -200,11 +200,18 @@
             android:title="@string/display_cutout_emulation"
             settings:keywords="@string/display_cutout_emulation_keywords" />
 
-        <com.cherish.settings.preferences.SystemSettingSwitchPreference
+        <com.mist.settings.preferences.SystemSettingSwitchPreference
             android:key="wake_when_plugged_or_unplugged"
             android:title="@string/wake_when_plugged_or_unplugged_title"
             android:summary="@string/wake_when_plugged_or_unplugged_summary"
             android:defaultValue="true" />
+
+        <com.mist.settings.preferences.SystemSettingSwitchPreference
+            android:key="high_touch_polling_rate_enable"
+            android:title="@string/high_touch_polling_rate_title"
+            android:summary="@string/high_touch_polling_rate_summary"
+            android:defaultValue="false"
+            settings:controller="com.android.settings.touch.HighTouchPollingRateSettingsPreferenceController" />
 
         <com.mist.settings.preferences.SystemSettingSwitchPreference
             android:key="high_touch_sensitivity_enable"
