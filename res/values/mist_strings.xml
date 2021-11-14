@@ -56,6 +56,10 @@
     <string name="custom_light_on_time_title">Light ON time during led pulse (ms)</string>
     <string name="custom_light_off_time_title">Light OFF time during led pulse (ms)"</string>
     <string name="value_equals_default">def</string>
+
+    <!-- Screen off FOD -->
+    <string name="screen_off_udfps_title">Screen off FOD</string>
+    <string name="screen_off_udfps_summary">Keep FOD enabled when the screen is off</string>
 	
     <!-- FastCharge feature -->
     <string name="fast_charging_title">Fast charging</string>
