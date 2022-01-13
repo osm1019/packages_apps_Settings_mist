@@ -164,7 +164,7 @@ public class FingerprintEnrollIntroduction extends BiometricEnrollIntroduction {
             }));
         }
 
-        if (TextUtils.isEmpty(footerMessageLearnMore.getText())) {
+        if (TextUtils.isEmpty(footerLink.getText())) {
             findViewById(R.id.layout_footer_learn_more).setVisibility(View.GONE);
         }
     }
