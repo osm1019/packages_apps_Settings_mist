@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
+<<<<<<< HEAD:res/layout/mistos_dashboard_preference_bottom.xml
      Copyright 2023 The EverestOS Project
+=======
+     Copyright (C) 2021 AOSP-Krypton Project
+>>>>>>> 701f5882f85 (Settings: Improve force fullscreen settings fragment):res/layout/cutout_force_fullscreen_layout.xml
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,14 +19,24 @@
      limitations under the License.
 -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD:res/layout/mistos_dashboard_preference_bottom.xml
     android:id="@+id/container"
     style="@style/mistDashboardPreferenceBottom"
+=======
+>>>>>>> 701f5882f85 (Settings: Improve force fullscreen settings fragment):res/layout/cutout_force_fullscreen_layout.xml
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+<<<<<<< HEAD:res/layout/mistos_dashboard_preference_bottom.xml
     <include
         layout="@layout/mistos_dashboard_pref"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+=======
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/apps_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+>>>>>>> 701f5882f85 (Settings: Improve force fullscreen settings fragment):res/layout/cutout_force_fullscreen_layout.xml
 </FrameLayout>
