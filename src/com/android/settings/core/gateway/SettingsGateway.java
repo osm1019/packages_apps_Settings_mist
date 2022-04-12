@@ -118,6 +118,7 @@ import com.android.settings.fuelgauge.AdvancedPowerUsageDetail;
 import com.android.settings.fuelgauge.batterysaver.BatterySaverScheduleSettings;
 import com.android.settings.fuelgauge.batterysaver.BatterySaverSettings;
 import com.android.settings.fuelgauge.batteryusage.PowerUsageSummary;
+import com.android.settings.fuelgauge.sleepmode.SleepMode;
 import com.android.settings.gestures.ButtonNavigationSettingsFragment;
 import com.android.settings.gestures.DoubleTapPowerSettings;
 import com.android.settings.gestures.DoubleTapScreenSettings;
@@ -412,7 +413,9 @@ public class SettingsGateway {
             Themes.class.getName(),
             Toolbox.class.getName(),
             SmartPixels.class.getName(),
-            RunningServices.class.getName()
+            com.rising.settings.fragments.lockscreen.LockClockFontsPickerPreview.class.getName(),
+            RunningServices.class.getName(),
+            SleepMode.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -464,6 +467,7 @@ public class SettingsGateway {
             Settings.PersonalizationsToolboxActivity.class.getName(),
             Settings.PersonalizationsThemesActivity.class.getName(),
             Settings.SmartPixelsActivity.class.getName(),
-            Settings.DevRunningServicesActivity.class.getName()
+            Settings.DevRunningServicesActivity.class.getName(),
+            Settings.SleepModeActivity.class.getName()
     };
 }
