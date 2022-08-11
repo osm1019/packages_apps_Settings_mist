@@ -74,6 +74,8 @@ android_library {
         "androidx.navigation_navigation-fragment-ktx",
         "androidx.window_window-java",
         "gson",
+        "androidx.fragment_fragment-ktx",
+        "androidx.lifecycle_lifecycle-runtime-ktx",
         "guava",
 
         // Android internal dependencies
@@ -112,13 +114,11 @@ android_library {
         "settings-logtags",
         "settings-telephony-protos-lite",
         "statslog-settings",
-<<<<<<< HEAD
         "androidx.test.rules",
         "telephony_flags_core_java_lib",
         "setupdesign-lottie-loading-layout",
-=======
         "glide",
->>>>>>> 390f4257b74 (Settings: Add Glide library)
+        "SettingsLibMainSwitchPreference",
     ],
 
     plugins: ["androidx.room_room-compiler-plugin"],
