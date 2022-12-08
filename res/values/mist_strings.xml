@@ -27,19 +27,19 @@
     <string name="build_date_default">2015-01-01-0000</string>
     <string name="keywords_build_date">build date, build info</string>
 	
-	 <!-- Three-fingers-swipe to screenshot -->
+    <!-- Three-fingers-swipe to screenshot -->
     <string name="swipe_to_screenshot_gesture_title">Swipe to screenshot</string>
     <string name="swipe_to_screenshot_gesture_summary">Swipe three fingers to take screenshot</string>
 	
-	<!-- Refresh rate -->
+    <!-- Refresh rate -->
     <string name="min_refresh_rate_title">Minimum refresh rate</string>
     <string name="max_refresh_rate_title">Maximum refresh rate</string>
     <string name="low_power_refresh_rate_title_custom">Low power refresh rate</string>
 	
-	<!-- Screenshot shutter -->
+    <!-- Screenshot shutter -->
     <string name="screenshot_shutter_sound_title">Screenshot sound</string>
 	
-	<!-- Wake on plug -->
+    <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
     <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting a power source</string>
 	
@@ -47,7 +47,7 @@
     <string name="proximity_wake_title">Prevent accidental wake-up</string>
     <string name="proximity_wake_summary">Check the proximity sensor prior to waking up screen</string>
 	
-	<!-- Hardware info -->
+    <!-- Hardware info -->
     <string name="platform_revision">Platform</string>
     <string name="total_ram">Total RAM</string>
 
@@ -65,7 +65,7 @@
     <string name="fast_charging_title">Fast charging</string>
     <string name="fast_charging_summary">Disable to reduce the heat produced by the device while charging or to extend the lifespan of the battery</string>
 	
-	<!-- Adaptive Playback -->
+    <!-- Adaptive Playback -->
     <string name="adaptive_playback_screen_title">Smart Pause</string>
     <string name="adaptive_playback_master_switch_title">Use Smart Pause</string>
     <string name="adaptive_playback_disabled_summary">Off</string>
@@ -84,15 +84,41 @@
     <string name="adaptive_playback_timeout_10_min">10 minutes</string>
     <string name="adaptive_playback_timeout_10_min_summary">On (10 minutes)</string>
 	
-	<!-- Volume button music control -->
+    <!-- Volume button music control -->
     <string name="volume_button_music_control_title">Playback control</string>
     <string name="volume_button_music_control_summary">When the screen is off, long-pressing volume keys will skip music tracks</string>
 	
-	<!-- PIN scramble -->
+    <!-- PIN scramble -->
     <string name="unlock_scramble_pin_layout_title">Scramble layout</string>
     <string name="unlock_scramble_pin_layout_summary">Scramble PIN layout when unlocking device</string>
 	
-	<!-- Quick unlock -->
+    <!-- Quick unlock -->
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
     <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN/password is entered</string>
+	
+    <!-- About phone screen, status item label  [CHAR LIMIT=40] -->
+    <string name="custom_firmware_version">Mist version</string>
+    <!-- About phone screen, status item URI    [CHAR LIMIT=40] -->
+    <string name="custom_firmware_uri" translatable="false">https://t.me/MistOSUpdate</string>
+    <string name="about_device_info">About device</string>
+	
+    <!-- MistOS versioning -->
+    <string name="mist_version_title">Mist Version</string>
+    <string name="mist_device_title">Device</string>
+    <string name="mist_release_type_title">Release type</string>
+    <string name="mist_maintainer_title">Maintainer</string>
+
+    <!-- About page -->
+    <string name="battery">Battery</string>
+    <string name="display">Display</string>
+    <string name="storage">Storage</string>
+    <string name="chipset">Chipset</string>
+
+    <!-- Settings homepage alternative header -->
+    <string name="top_level_settings_title">Settings</string>
+
+    <string name="wellbeing_title">Google Wellbeing</string>
+    <string name="usercard_summary">Current active user, tap for more information</string>
+    <string name="connectivity_category_title">connectivity</string>
+
 </resources>
