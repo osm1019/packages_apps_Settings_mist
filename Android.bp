@@ -159,6 +159,11 @@ filegroup {
     srcs: ["AndroidManifest.xml"],
 }
 
+android_library_import {
+    name: "glide",
+    aars: ["libs/glide-4.14.2.aar"],
+}
+
 java_import {
     name: "accountfeatureprovidergoogle",
     jars: ["libs/accountfeatureprovidergoogle.jar"],
