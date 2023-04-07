@@ -18,4 +18,5 @@
 
     <color name="homepage_mist_background">#FFCD00</color>
 
+    <color name="mist_accent_ripple">@android:color/system_accent1_500</color>
 </resources>
