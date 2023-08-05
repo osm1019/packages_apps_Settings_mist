@@ -50,7 +50,7 @@ public class MistInfoPreferenceController extends AbstractPreferenceController {
         final TextView battery = (TextView) mistInfoPreference.findViewById(R.id.battery_type_message);
         final TextView infoScreen = (TextView) mistInfoPreference.findViewById(R.id.screen_message);
         processor.setText(MistSpecUtils.getProcessorModel());
-        storage.setText(String.valueOf(MistSpecUtils.getTotalInternalMemorySize()) + "GB ROM + " + String.valueOf(MistSpecUtils.getTotalRAM()) + "GB RAM");
+        storage.setText(String.valueOf(MistSpecUtils.getTotalInternalMemorySize()) + "GB ROM + " + MistSpecUtils.getTotalRAM() + " RAM");
         battery.setText(MistSpecUtils.getBatteryCapacity(mContext) + " mAh");
         infoScreen.setText(MistSpecUtils.getScreenRes(mContext));
     }
