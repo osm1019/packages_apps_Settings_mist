@@ -186,23 +186,10 @@
             settings:controller="com.android.settings.network.telephony.CarrierSettingsVersionPreferenceController"
             settings:enableCopying="true"/>
 
-        <!-- IMEI -->
         <Preference
-            android:key="network_mode_imei_info"
-            android:title="@string/status_imei"
-            android:summary="@string/summary_placeholder"
-            settings:keywords="@string/keywords_imei_info"
-            settings:enableCopying="true"
-            settings:controller="com.android.settings.network.telephony.MobileNetworkImeiPreferenceController"/>
-        <!-- EID -->
-        <com.android.settingslib.CustomDialogPreferenceCompat
-            android:key="network_mode_eid_info"
-            android:title="@string/status_eid"
-            android:summary="@string/device_info_protected_single_press"
-            android:positiveButtonText="@string/dlg_ok"
-            android:dialogLayout="@layout/dialog_eid_status"
-            settings:enableCopying="true"
-            settings:controller="com.android.settings.network.telephony.MobileNetworkEidPreferenceController"/>
+            android:key="speed_boost_settings"
+            android:title="@string/speed_boost_title"
+            settings:controller="com.google.android.settings.network.telephony.SpeedBoostPreferenceController" />
 
         <PreferenceCategory
             android:key="calling_category"
