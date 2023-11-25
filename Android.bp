@@ -69,6 +69,7 @@ android_library {
         "res-product",
         "Mistify/res",
         "TouchGestures/res",
+        "SettingsGoogle/res",
     ],
     static_libs: [
         // External dependencies
