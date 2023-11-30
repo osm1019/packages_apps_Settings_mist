@@ -5149,6 +5149,19 @@
             android:permission="android.permission.NETWORK_SETTINGS">
         </activity>
 
+        <!-- Mistify -->
+        <activity android:name=".Settings$MistifySettingsActivity"
+            android:label="@string/mistify_dash_title"
+            android:icon="@drawable/ic_homepage_mistify"
+            android:exported="true"
+            android:parentActivityName="com.android.settings">
+            <intent-filter>
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.mist.mistify.MistifySettings" />
+        </activity>
+
         <!-- This is the longest AndroidManifest.xml ever. -->
     </application>
 </manifest>

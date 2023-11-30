@@ -67,4 +67,9 @@
 
      <!-- Summary for list to control apps that ignore battery saving restrictions -->
      <string name="high_power_apps_summary">Battery optimization availability</string>
+
+     <!-- Mistify -->
+     <string name="mistify_dash_title">Mistify Tweak</string>
+     <string name="mistify_summary">Infinity exist everywhere!!</string>
+
 </resources>
