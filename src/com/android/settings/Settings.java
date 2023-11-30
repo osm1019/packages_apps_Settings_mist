@@ -494,4 +494,7 @@ public class Settings extends SettingsActivity {
      * Activity for PreviouslyConnectedDeviceDashboardFragment
      */
     public static class PreviouslyConnectedDevicesActivity extends SettingsActivity { /* empty */ }
+
+    // Mistify Additoon
+    public static class MistifyActivity extends SettingsActivity {}
 }
