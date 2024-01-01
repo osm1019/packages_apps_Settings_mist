@@ -24,4 +24,7 @@
     <string name="build_date_default">2015-01-01-0000</string>
     <string name="keywords_build_date">build date, build info</string>
 
+    <!--Mist Settings-->
+    <string name="mist_settings_title">Mistify</string>
+    <string name="mist_settings_summary">Infinity Exists Everywhere.!!</string>
 </resources>
