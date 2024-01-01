@@ -60,6 +60,15 @@
         settings:highlightableMenuKey="@string/menu_key_apps"/>
 
     <com.android.settings.widget.HomepagePreference
+        android:key="top_level_mist"
+        android:title="@string/mist_settings_title"
+        android:summary="@string/mist_settings_summary"
+        android:icon="@drawable/ic_mist"
+        android:order="-125"
+        android:fragment="com.mist.settings.MistSettings"
+		settings:highlightableMenuKey="@string/menu_key_mist"/>
+
+    <com.android.settings.widget.HomepagePreference
         android:fragment="com.android.settings.notification.ConfigureNotificationSettings"
         android:icon="@drawable/ic_notifications"
         android:key="top_level_notifications"
