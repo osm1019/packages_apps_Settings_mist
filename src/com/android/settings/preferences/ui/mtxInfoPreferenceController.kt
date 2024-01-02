@@ -51,17 +51,8 @@ class mtxInfoPreferenceController(context: Context) : AbstractPreferenceControll
         return getPropertyOrDefault(PROP_MIST_BUILD_VERSION)
     }
 
-<<<<<<< HEAD
-    private fun getMistStorage(): String {
-        return SystemProperties.get(PROP_MIST_RAM, "0gb") + "/" + SystemProperties.get(PROP_MIST_STORAGE, "0gb")
-    }
-
     private fun getMistChipset(): String {
         return getPropertyOrDefault(PROP_MIST_CHIPSET)
-=======
-    private fun getCherishChipset(): String {
-        return getPropertyOrDefault(PROP_CHERISH_CHIPSET)
->>>>>>> 1d47efb1562 (Settings: Nuke memory info from About phone)
     }
 
     private fun getMistBattery(): String {
@@ -122,16 +113,9 @@ class mtxInfoPreferenceController(context: Context) : AbstractPreferenceControll
 
         hwInfoPreference.apply {
             findViewById<TextView>(R.id.device_name).text = getDeviceName()
-<<<<<<< HEAD
             findViewById<TextView>(R.id.device_chipset).text = getMistChipset()
-            findViewById<TextView>(R.id.device_storage).text = getMistStorage()
             findViewById<TextView>(R.id.device_battery_capacity).text = getMistBattery()
             findViewById<TextView>(R.id.device_resolution).text = getMistResolution()
-=======
-            findViewById<TextView>(R.id.device_chipset).text = getCherishChipset()
-            findViewById<TextView>(R.id.device_battery_capacity).text = getCherishBattery()
-            findViewById<TextView>(R.id.device_resolution).text = getCherishResolution()
->>>>>>> 1d47efb1562 (Settings: Nuke memory info from About phone)
             findViewById<TextView>(R.id.device_name_model).text = getDeviceName()
         }
 
