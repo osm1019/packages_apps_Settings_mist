@@ -30,6 +30,7 @@ public class MistVersionPreferenceController extends BasePreferenceController {
 
     @VisibleForTesting
     static final String MIST_VERSION_PROPERTY = "ro.mist.version";
+    static final String MIST_FLAVOR_PROPERTY = "ro.mist.codename";
 
     public MistVersionPreferenceController(Context context, String preferenceKey) {
         super(context, preferenceKey);
@@ -42,7 +43,10 @@ public class MistVersionPreferenceController extends BasePreferenceController {
 
     @Override
     public CharSequence getSummary() {
-        return SystemProperties.get(MIST_VERSION_PROPERTY,
+        String mistBrand = SystemProperties.get(MIST_VERSION_PROPERTY,
                 mContext.getString(R.string.device_info_default));
+        String mistFlavor = SystemProperties.get(MIST_FLAVOR_PROPERTY,
+                mContext.getString(R.string.device_info_default));
+        return mistBrand + " | " + mistFlavor;
     }
 }
