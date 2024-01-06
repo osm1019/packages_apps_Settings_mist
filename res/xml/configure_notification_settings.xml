@@ -178,8 +178,8 @@
             android:order="24"
             android:title="@string/notification_light_title"
             android:summary="@string/notification_light_summary"
-            android:fragment="com.android.settings.cherish.notificationlight.NotificationLightSettings"
-            settings:controller="com.android.settings.cherish.notificationlight.NotificationLightPreferenceController" />
+            android:fragment="com.android.settings.mist.notificationlight.NotificationLightSettings"
+            settings:controller="com.android.settings.mist.notificationlight.NotificationLightPreferenceController" />
 
         <com.android.settingslib.PrimarySwitchPreference
             android:key="notification_assistant"

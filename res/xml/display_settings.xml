@@ -114,8 +114,8 @@
             android:key="livedisplay"
             android:title="@*android:string/live_display_title"
             android:summary="@string/live_display_summary"
-            android:fragment="com.android.settings.cherish.livedisplay.LiveDisplaySettings"
-            settings:controller="com.android.settings.cherish.livedisplay.LiveDisplayController"/>
+            android:fragment="com.android.settings.mist.livedisplay.LiveDisplaySettings"
+            settings:controller="com.android.settings.mist.livedisplay.LiveDisplayController"/>
 
         <Preference
             android:key="color_mode"

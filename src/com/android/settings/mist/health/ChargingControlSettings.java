@@ -38,7 +38,7 @@ import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-import com.android.settings.cherish.preference.CustomDialogPreference;
+import com.android.settings.mist.preference.CustomDialogPreference;
 
 import com.android.internal.mist.health.HealthInterface;
 import com.mist.settings.preferences.SystemSettingDropDownPreference;

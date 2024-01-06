@@ -5098,7 +5098,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.cherish.settings.fragments.SmartPixels" />
+                android:value="com.mist.settings.fragments.SmartPixels" />
         </activity>
 
         <!-- This is the longest AndroidManifest.xml ever. -->
