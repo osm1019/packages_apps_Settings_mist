@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2020 Wave-OS
  * Copyright (C) 2021 ShapeShiftOS
+ * Copyright (C) 2024 SuperiorExtended-OS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +18,6 @@
 
 package com.android.settings.deviceinfo.aboutphone;
 
-import java.io.IOException;
 import android.content.Context;
 import android.os.SystemProperties;
 import android.widget.TextView;
@@ -28,8 +28,6 @@ import com.android.settings.R;
 import com.android.settings.utils.MistSpecUtils;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.widget.LayoutPreference;
-import com.android.settingslib.Utils;
-import com.android.settings.core.PreferenceControllerMixin;
 
 public class MistInfoPreferenceController extends AbstractPreferenceController {
 
@@ -43,14 +41,20 @@ public class MistInfoPreferenceController extends AbstractPreferenceController {
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
         final LayoutPreference mistInfoPreference = screen.findPreference(KEY_MIST_INFO);
-        final TextView processor = (TextView) mistInfoPreference.findViewById(R.id.processor_message);
-        final TextView storage = (TextView) mistInfoPreference.findViewById(R.id.storage_code_message);
-        final TextView battery = (TextView) mistInfoPreference.findViewById(R.id.battery_type_message);
-        final TextView infoScreen = (TextView) mistInfoPreference.findViewById(R.id.screen_message);
-        processor.setText(MistSpecUtils.getProcessorModel());
-        storage.setText(String.valueOf(MistSpecUtils.getTotalInternalMemorySize()) + "GB ROM | " + MistSpecUtils.getTotalRAM() + " RAM");
-        battery.setText(MistSpecUtils.getBatteryCapacity(mContext) + " mAh");
-        infoScreen.setText(MistSpecUtils.getScreenRes(mContext));
+
+        if (mistInfoPreference != null) {
+            final TextView processor = mistInfoPreference.findViewById(R.id.processor_message);
+            final TextView storageAndRAM = mistInfoPreference.findViewById(R.id.storage_code_message);
+            final TextView battery = mistInfoPreference.findViewById(R.id.battery_type_message);
+            final TextView infoScreen = mistInfoPreference.findViewById(R.id.screen_message);
+
+            Context context = mistInfoPreference.getContext();
+
+            processor.setText(MistSpecUtils.getProcessorModel(context));
+            storageAndRAM.setText(MistSpecUtils.getStorageAndRAMInfo(context));
+            battery.setText(MistSpecUtils.getBatteryInfo(context));
+            infoScreen.setText(MistSpecUtils.getScreenRes(context));
+        }
     }
 
     @Override
