@@ -75,7 +75,11 @@ public class AvatarViewMixin implements LifecycleObserver {
      * @return true if the avatar icon is supported.
      */
     public static boolean isAvatarSupported(Context context) {
+<<<<<<< HEAD
         if (!MistUtils.isPackageInstalled(context, "com.google.android.gms")) {
+=======
+        if (!EverestUtils.isPackageInstalled(context, "com.google.android.gms")) {
+>>>>>>> 5f714a29acd (settings: Add avatar to settings homepage)
             Log.d(TAG, "Feature disabled by config. Skipping");
             return false;
         }
