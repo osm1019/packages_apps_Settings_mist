@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 
-<androidx.core.widget.NestedScrollView
+<com.android.settings.edgeeffect.SpringNestScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scroll"
     android:background="?android:attr/colorBackgroundFloating"
@@ -203,4 +203,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</com.android.settings.edgeeffect.SpringNestScrollView>
