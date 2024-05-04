@@ -73,6 +73,7 @@ android_library {
         "androidx.navigation_navigation-fragment-ktx",
         "androidx.window_window-java",
         "gson",
+        "androidx.fragment_fragment",
         "androidx.fragment_fragment-ktx",
         "androidx.lifecycle_lifecycle-runtime-ktx",
         "guava",
@@ -114,6 +115,9 @@ android_library {
         "statslog-settings",
         "glide",
         "SettingsLibMainSwitchPreference",
+        "kotlinx_coroutines_android",
+        "kotlinx_coroutines",
+        "androidx.preference_preference-ktx",
     ],
 
     plugins: ["androidx.room_room-compiler-plugin"],
