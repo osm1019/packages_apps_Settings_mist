@@ -56,7 +56,7 @@
         android:title="@string/mist_settings_title"
         android:summary="@string/mist_settings_summary"
         android:icon="@drawable/ic_mist"
-        android:order="-130"
+        android:order="-170"
         android:fragment="com.mist.settings.MistSettings"
 	settings:highlightableMenuKey="@string/menu_key_mist"/>
 
