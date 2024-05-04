@@ -25,7 +25,7 @@
         android:fragment="com.android.settings.network.NetworkDashboardFragment"
         android:icon="@drawable/ic_settings_wireless"
         android:key="top_level_network"
-        android:order="-150"
+        android:order="-160"
         android:title="@string/network_dashboard_title"
         android:summary="@string/summary_placeholder"
         settings:highlightableMenuKey="@string/menu_key_network"
@@ -45,11 +45,19 @@
         android:fragment="com.android.settings.connecteddevice.ConnectedDeviceDashboardFragment"
         android:icon="@drawable/ic_devices_other"
         android:key="top_level_connected_devices"
-        android:order="-140"
+        android:order="-150"
         android:title="@string/connected_devices_dashboard_title"
         android:summary="@string/connected_devices_dashboard_default_summary"
         settings:highlightableMenuKey="@string/menu_key_connected_devices"
         settings:controller="com.android.settings.connecteddevice.TopLevelConnectedDevicesPreferenceController"/>
+    <com.android.settings.widget.HomepagePreference
+        android:fragment="com.android.settings.deviceinfo.aboutphone.MyDeviceInfoFragment"
+        android:key="top_level_about_device"
+        android:order="-180"
+        android:title="@string/about_settings"
+        android:summary="@string/summary_placeholder"
+        settings:highlightableMenuKey="@string/menu_key_about_device"
+        settings:controller="com.android.settings.deviceinfo.aboutphone.TopLevelAboutDevicePreferenceController"/>
 
      <com.android.settings.widget.HomepagePreference
         android:key="top_level_mist"
@@ -60,7 +68,7 @@
         android:fragment="com.mist.settings.MistSettings"
 	settings:highlightableMenuKey="@string/menu_key_mist"/>
 
-     <com.android.settings.widget.HomepagePreference
+    <com.android.settings.widget.HomepagePreference
         android:fragment="com.android.settings.DisplaySettings"
         android:icon="@drawable/ic_settings_display_white"
         android:key="top_level_display"
@@ -78,12 +86,21 @@
         android:summary="@string/wallpaper_dashboard_summary"
         settings:highlightableMenuKey="@string/menu_key_wallpaper"
         settings:controller="com.android.settings.display.TopLevelWallpaperPreferenceController"/>
+        
+    <com.android.settings.widget.HomepagePreference
+        android:fragment="com.android.settings.notification.SoundSettings"
+        android:icon="@drawable/ic_volume_up_24dp"
+        android:key="top_level_sound"
+        android:order="-100"
+        android:title="@string/sound_settings"
+        android:summary="@string/sound_dashboard_summary"
+        settings:highlightableMenuKey="@string/menu_key_sound"/>
 
     <com.android.settings.widget.HomepagePreference
         android:fragment="com.android.settings.applications.AppDashboardFragment"
         android:icon="@drawable/ic_apps"
         android:key="top_level_apps"
-        android:order="-100"
+        android:order="-90"
         android:title="@string/apps_dashboard_title"
         android:summary="@string/app_and_notification_dashboard_summary"
         settings:highlightableMenuKey="@string/menu_key_apps"/>
@@ -92,7 +109,7 @@
         android:fragment="com.android.settings.notification.ConfigureNotificationSettings"
         android:icon="@drawable/ic_notifications"
         android:key="top_level_notifications"
-        android:order="-90"
+        android:order="-80"
         android:title="@string/configure_notification_settings"
         android:summary="@string/notification_dashboard_summary"
         settings:highlightableMenuKey="@string/menu_key_notifications"/>
@@ -101,7 +118,7 @@
         android:fragment="com.android.settings.fuelgauge.batteryusage.PowerUsageSummary"
         android:icon="@drawable/ic_settings_battery_white"
         android:key="top_level_battery"
-        android:order="-80"
+        android:order="-70"
         android:title="@string/power_usage_summary_title"
         android:summary="@string/summary_placeholder"
         settings:highlightableMenuKey="@string/menu_key_battery"
@@ -111,20 +128,11 @@
         android:fragment="com.android.settings.deviceinfo.StorageDashboardFragment"
         android:icon="@drawable/ic_storage_white"
         android:key="top_level_storage"
-        android:order="-70"
+        android:order="-65"
         android:title="@string/storage_settings"
         android:summary="@string/summary_placeholder"
         settings:highlightableMenuKey="@string/menu_key_storage"
         settings:controller="com.android.settings.deviceinfo.TopLevelStoragePreferenceController"/>
-
-    <com.android.settings.widget.HomepagePreference
-        android:fragment="com.android.settings.notification.SoundSettings"
-        android:icon="@drawable/ic_volume_up_24dp"
-        android:key="top_level_sound"
-        android:order="-65"
-        android:title="@string/sound_settings"
-        android:summary="@string/sound_dashboard_summary"
-        settings:highlightableMenuKey="@string/menu_key_sound"/>
 
     <com.android.settings.widget.HomepagePreference
         android:fragment="com.android.settings.accessibility.AccessibilitySettings"
@@ -199,20 +207,10 @@
         android:fragment="com.android.settings.system.SystemDashboardFragment"
         android:icon="@drawable/ic_settings_system_dashboard_white"
         android:key="top_level_system"
-        android:order="10"
+        android:order="-15"
         android:title="@string/header_category_system"
         android:summary="@string/system_dashboard_summary"
         settings:highlightableMenuKey="@string/menu_key_system"/>
-
-    <com.android.settings.widget.HomepagePreference
-        android:fragment="com.android.settings.deviceinfo.aboutphone.MyDeviceInfoFragment"
-        android:icon="@drawable/ic_settings_about_device"
-        android:key="top_level_about_device"
-        android:order="20"
-        android:title="@string/about_settings"
-        android:summary="@string/summary_placeholder"
-        settings:highlightableMenuKey="@string/menu_key_about_device"
-        settings:controller="com.android.settings.deviceinfo.aboutphone.TopLevelAboutDevicePreferenceController"/>
 
     <com.android.settings.widget.HomepagePreference
         android:icon="@drawable/ic_help"
