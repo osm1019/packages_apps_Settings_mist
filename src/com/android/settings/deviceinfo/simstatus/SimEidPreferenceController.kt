@@ -1,4 +1,4 @@
-/*
+k/*
  * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -49,7 +49,7 @@ class SimEidPreferenceController(context: Context, preferenceKey: String) :
     BasePreferenceController(context, preferenceKey) {
     private var slotSimStatus: SlotSimStatus? = null
     private var eidStatus: EidStatus? = null
-    private lateinit var preference: CustomDialogPreferenceCompat
+    private var preference: CustomDialogPreferenceCompat? = null
     private var coroutineScope: CoroutineScope? = null
     private lateinit var eid: String
 
@@ -69,7 +69,10 @@ class SimEidPreferenceController(context: Context, preferenceKey: String) :
 
     override fun displayPreference(screen: PreferenceScreen) {
         super.displayPreference(screen)
-        preference = screen.findPreference(preferenceKey)!!
+        preference = screen.findPreference<CustomDialogPreferenceCompat>(preferenceKey)
+        if (preference == null) {
+            Log.e(TAG, "Preference with key $preferenceKey not found in PreferenceScreen")
+        }
     }
 
     override fun onViewCreated(viewLifecycleOwner: LifecycleOwner) {
@@ -85,14 +88,13 @@ class SimEidPreferenceController(context: Context, preferenceKey: String) :
         val isAvailable = withContext(Dispatchers.Default) {
             getIsAvailableAndUpdateEid()
         }
-        preference.isVisible = isAvailable
+        preference?.isVisible = isAvailable
         if (isAvailable) {
             val title = withContext(Dispatchers.Default) {
                 getTitle()
             }
-            preference.title = title
-            preference.dialogTitle = title
-            preference.summary = eid
+            preference?.title = title
+            preference?.dialogTitle = title
             updateDialog()
         }
     }
@@ -120,7 +122,7 @@ class SimEidPreferenceController(context: Context, preferenceKey: String) :
     }
 
     private suspend fun updateDialog() {
-        val dialog = preference.dialog ?: return
+        val dialog = preference?.dialog ?: return
         dialog.window?.setFlags(
             WindowManager.LayoutParams.FLAG_SECURE,
             WindowManager.LayoutParams.FLAG_SECURE
@@ -131,11 +133,14 @@ class SimEidPreferenceController(context: Context, preferenceKey: String) :
 
         val qrCodeView = dialog.requireViewById<ImageView>(R.id.esim_id_qrcode)
         qrCodeView.setImageBitmap(getEidQrCode(eid))
+
+        // After "Tap to show", eid is displayed on preference.
+        preference?.summary = textView.text
     }
 
     override fun handlePreferenceTreeClick(preference: Preference): Boolean {
         if (preference.key != preferenceKey) return false
-        this.preference.setOnShowListener {
+        this.preference?.setOnShowListener {
             coroutineScope?.launch { updateDialog() }
         }
         return true

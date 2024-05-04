@@ -21,10 +21,30 @@
     android:title="@string/firmware_version"
     settings:keywords="@string/keywords_android_version">
 
-    <com.android.settingslib.widget.LayoutPreference
+    <!--com.android.settingslib.widget.LayoutPreference
         android:layout="@layout/mist_logo"
         android:key="mist_logo" 
-        android:selectable="false"/>
+        android:selectable="false"/-->
+
+    <!-- Device Name -->
+    <Preference
+        android:key="about_device_name"
+        android:title="@string/about_device_name"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        android:icon="@drawable/ic_settings_display_acc"
+        settings:layout="@layout/mist_dashboard_preference_top"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.AboutDeviceNamePreferenceController"/>
+
+     <!-- Mist version -->
+    <Preference
+         android:key="mist_version"
+         android:title="@string/mist_version"
+         android:summary="@string/summary_placeholder"
+         settings:enableCopying="true"
+         android:icon="@drawable/ic_settings_system_dashboard_acc"
+         settings:layout="@layout/mist_dashboard_preference_middle"
+         settings:controller="com.android.settings.deviceinfo.firmwareversion.MistVersionPreferenceController"/>
 
     <!-- Android version -->
     <Preference
@@ -33,31 +53,18 @@
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
         settings:searchable="false"
+        android:icon="@drawable/ic_android_acc"
+        settings:layout="@layout/mist_dashboard_preference_middle"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
-
-    <!-- Mist version -->
-    <Preference
-         android:key="mist_version"
-         android:title="@string/mist_version"
-         android:summary="@string/summary_placeholder"
-         settings:enableCopying="true"
-         settings:controller="com.android.settings.deviceinfo.firmwareversion.MistVersionPreferenceController"/>
-		 
-	<!-- Device Name -->
-    <Preference
-        android:key="about_device_name"
-        android:title="@string/about_device_name"
-        android:summary="@string/summary_placeholder"
-        settings:enableCopying="true"
-        android:selectable="false"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.AboutDeviceNamePreferenceController"/>
 
     <!-- Maintainer -->
     <Preference
         android:key="maintainer"
         android:title="@string/maintainer"
+        android:icon="@drawable/ic_maintainer"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
+        settings:layout="@layout/mist_dashboard_preference_bottom"
         settings:controller="com.android.settings.deviceinfo.mist.MistMaintainerPreferenceController"/>
 
     <!-- Security patch -->
@@ -65,32 +72,25 @@
         android:key="security_key"
         android:title="@string/security_patch"
         settings:enableCopying="true"
+        settings:layout="@layout/mist_dashboard_preference_top"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
 
-    <!-- Mainline module version -->
+    <!-- Mainline module version
     <Preference
         android:key="module_version"
         android:title="@string/module_version"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.MainlineModuleVersionPreferenceController"/>
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.MainlineModuleVersionPreferenceController"/-->
 
     <!-- Baseband -->
     <Preference
         android:key="base_band"
         android:title="@string/baseband_version"
         android:summary="@string/summary_placeholder"
-        android:selectable="false"
+        settings:layout="@layout/mist_dashboard_preference_middle"
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.BasebandVersionPreferenceController"/>
-
-    <!-- Build date -->
-    <Preference 
-        android:key="build_date"
-        android:title="@string/build_date"
-        android:summary="@string/build_date_default"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.BuildDatePreferenceController"/>
 
     <!-- Kernel -->
     <Preference
@@ -98,6 +98,7 @@
         android:title="@string/kernel_version"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
+        settings:layout="@layout/mist_dashboard_preference_middle"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.KernelVersionPreferenceController"/>
 
     <!-- Build -->
@@ -109,13 +110,13 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.SimpleBuildNumberPreferenceController"/> -->
 
-    <!-- SELinux -->
-    <Preference
-        android:key="selinux_status"
-        android:title="@string/selinux_status"
-        android:summary="@string/selinux_status_enforcing"
-        android:selectable="false"
-        settings:enableCopying="false"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.SELinuxStatusPreferenceController"/>
+     <!-- Build date -->
+    <Preference 
+        android:key="build_date"
+        android:title="@string/build_date"
+        android:summary="@string/build_date_default"
+        settings:layout="@layout/mist_dashboard_preference_bottom"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.BuildDatePreferenceController"/>
 
 </PreferenceScreen>
