@@ -256,16 +256,17 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             	|| key.equals("top_level_display")
             	|| key.equals("top_level_apps")
             	|| key.equals("top_level_accessibility")
-            	|| key.equals("top_level_emergency")
                 || key.equals("top_level_system")){
                 preference.setLayoutResource(R.layout.mist_dashboard_preference_top);
             } else if (key.equals("top_level_battery")
+                || key.equals("top_level_wallpaper")
             	|| key.equals("top_level_display")
             	|| key.equals("top_level_security")
             	|| key.equals("top_level_privacy")
             	|| key.equals("top_level_safety_center")
             	|| key.equals("top_level_storage")
             	|| key.equals("top_level_wellbeing")
+                || key.equals("top_level_location")
             	|| key.equals("top_level_notifications")){
                 preference.setLayoutResource(R.layout.mist_dashboard_preference_middle);
             } else if ("top_level_google".equals(key)){
@@ -274,6 +275,8 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
                 preference.setLayoutResource(R.layout.mist_dashboard_preference_middle);
             } else if (key.equals("top_level_mist")){
                 preference.setLayoutResource(R.layout.mist_dashboard_preference_single);
+            } else if (key.equals("top_level_about_device")){
+                preference.setLayoutResource(R.layout.custom_dashboard_top);
             } else {
                 preference.setLayoutResource(R.layout.mist_dashboard_preference_bottom);
             }
