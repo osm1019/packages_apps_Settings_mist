@@ -21,7 +21,9 @@ package com.android.settings.deviceinfo.aboutphone;
 import android.content.Context;
 import android.os.SystemProperties;
 import android.widget.TextView;
-import androidx.preference.PreferenceFragmentCompat;
+import android.text.TextUtils;
+
+import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
 import com.android.settings.R;
@@ -32,6 +34,10 @@ import com.android.settingslib.widget.LayoutPreference;
 public class MistInfoPreferenceController extends AbstractPreferenceController {
 
     private static final String KEY_MIST_INFO = "mist_info";
+    private static final String KEY_STORAGE = "storage";
+    private static final String KEY_CHIPSET = "chipset";
+    private static final String KEY_BATTERY = "battery";
+    private static final String KEY_DISPLAY = "display";
 
     public MistInfoPreferenceController(Context context) {
         super(context);
@@ -43,17 +49,19 @@ public class MistInfoPreferenceController extends AbstractPreferenceController {
         final LayoutPreference mistInfoPreference = screen.findPreference(KEY_MIST_INFO);
 
         if (mistInfoPreference != null) {
-            final TextView processor = mistInfoPreference.findViewById(R.id.processor_message);
-            final TextView storageAndRAM = mistInfoPreference.findViewById(R.id.storage_code_message);
-            final TextView battery = mistInfoPreference.findViewById(R.id.battery_type_message);
-            final TextView infoScreen = mistInfoPreference.findViewById(R.id.screen_message);
+            final TextView processor = mistInfoPreference.findViewById(R.id.chipset_summary);
+            final TextView storageAndRAM = mistInfoPreference.findViewById(R.id.cust_storage_summary);
+            final TextView battery = mistInfoPreference.findViewById(R.id.cust_battery_summary);
+            final TextView infoScreen = mistInfoPreference.findViewById(R.id.cust_display_summary);
 
+            if (processor != null && storageAndRAM != null && battery != null && infoScreen != null) {
             Context context = mistInfoPreference.getContext();
 
             processor.setText(MistSpecUtils.getProcessorModel(context));
             storageAndRAM.setText(MistSpecUtils.getStorageAndRAMInfo(context));
             battery.setText(MistSpecUtils.getBatteryInfo(context));
             infoScreen.setText(MistSpecUtils.getScreenRes(context));
+            }
         }
     }
 
