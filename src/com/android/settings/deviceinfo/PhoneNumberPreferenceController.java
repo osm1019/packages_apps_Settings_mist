@@ -43,6 +43,7 @@ public class PhoneNumberPreferenceController extends BasePreferenceController {
     private final TelephonyManager mTelephonyManager;
     private final SubscriptionManager mSubscriptionManager;
     private final List<Preference> mPreferenceList = new ArrayList<>();
+    private boolean mTapped = false;
 
     public PhoneNumberPreferenceController(Context context, String key) {
         super(context, key);
@@ -57,24 +58,10 @@ public class PhoneNumberPreferenceController extends BasePreferenceController {
 
     @Override
     public CharSequence getSummary() {
-        return mContext.getString(R.string.device_info_protected_single_press);
-    }
-
-    @Override
-    public boolean handlePreferenceTreeClick(Preference preference) {
-        String prefKey = preference.getKey();
-        if (prefKey.startsWith(KEY_PHONE_NUMBER)) {
-            int simSlotNumber = 0;
-            if (!TextUtils.equals(prefKey, KEY_PHONE_NUMBER)) {
-                // Get multisim slot number from preference key.
-                // Multisim preference key is KEY_PHONE_NUMBER + simSlotNumber
-                simSlotNumber = Integer.parseInt(
-                        prefKey.replaceAll("[^0-9]", ""));
-            }
-            final Preference simStatusPreference = mPreferenceList.get(simSlotNumber);
-            simStatusPreference.setSummary(getPhoneNumber(simSlotNumber));
+        if (mTapped) {
+            return getFirstPhoneNumber();
         }
-        return super.handlePreferenceTreeClick(preference);
+        return mContext.getString(R.string.device_info_protected_single_press);
     }
 
     @Override
@@ -114,7 +101,7 @@ public class PhoneNumberPreferenceController extends BasePreferenceController {
 
     @Override
     public boolean useDynamicSliceSummary() {
-        return true;
+        return mTapped;
     }
 
     @Override
@@ -129,17 +116,6 @@ public class PhoneNumberPreferenceController extends BasePreferenceController {
                 : mContext.getString(R.string.device_info_protected_single_press));
         simStatusPreference.setCopyingEnabled(mTapped);
         return true;
-    }
-
-    private CharSequence getFirstPhoneNumber() {
-        final List<SubscriptionInfo> subscriptionInfoList =
-                mSubscriptionManager.getActiveSubscriptionInfoList();
-        if (subscriptionInfoList == null || subscriptionInfoList.isEmpty()) {
-            return mContext.getText(R.string.device_info_default);
-        }
-
-        // For now, We only return first result for slice view.
-        return getFormattedPhoneNumber(subscriptionInfoList.get(0));
     }
 
     private CharSequence getFirstPhoneNumber() {

@@ -30,7 +30,7 @@ public class MistMaintainerPreferenceController extends BasePreferenceController
     private static final String TAG = "MistMaintainerPreferenceController";
     private static final String ROM_PROPERTY = "ro.mist.maintainer";
 
-    public CherishMaintainerPreferenceController(Context context, String key) {
+    public MistMaintainerPreferenceController(Context context, String key) {
         super(context, key);
     }
 

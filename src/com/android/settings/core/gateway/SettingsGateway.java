@@ -432,13 +432,8 @@ public class SettingsGateway {
             UserBackupSettingsActivity.class.getName(),
             Settings.MemtagPageActivity.class.getName(),
             Settings.NavigationModeSettingsActivity.class.getName(),
-<<<<<<< HEAD
             Settings.MistSettingsActivity.class.getName(),
-=======
-            Settings.CherishSettingsActivity.class.getName(),
-            Settings.FirmwareVersionActivity.class.getName(),
             Settings.WallpaperSettingsActivity.class.getName(),
             Settings.SmartPixelsActivity.class.getName(),
->>>>>>> f3ababe8163 (Fix long click intent for Smart Pixels tile [2/2])
     };
 }

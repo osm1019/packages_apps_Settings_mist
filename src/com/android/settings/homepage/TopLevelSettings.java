@@ -264,7 +264,6 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             	|| key.equals("top_level_security")
             	|| key.equals("top_level_privacy")
             	|| key.equals("top_level_safety_center")
-            	|| key.equals("top_level_storage")
             	|| key.equals("top_level_wellbeing")
                 || key.equals("top_level_location")
             	|| key.equals("top_level_notifications")){
@@ -274,6 +273,8 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             } else if (key.equals("top_level_accounts") && gAppsExists){
                 preference.setLayoutResource(R.layout.mist_dashboard_preference_middle);
             } else if (key.equals("top_level_mist")){
+                preference.setLayoutResource(R.layout.mist_dashboard_preference_single);
+            } else if (key.equals("top_level_storage")){
                 preference.setLayoutResource(R.layout.mist_dashboard_preference_single);
             } else if (key.equals("top_level_about_device")){
                 preference.setLayoutResource(R.layout.custom_dashboard_top);

@@ -67,7 +67,6 @@ android_library {
         "res-export", // for external usage
         "res-product",
         "Mistify/res",
-        "TouchGestures/res"
         "TouchGestures/res",
         "SettingsGoogle/res",
     ],
