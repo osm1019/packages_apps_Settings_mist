@@ -18,7 +18,10 @@ package com.android.settings.deviceinfo.firmwareversion;
 
 import android.content.Context;
 import android.os.SystemProperties;
-
+import android.os.Build;
+import android.text.TextUtils;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
 
@@ -39,7 +42,9 @@ public class AboutDeviceNamePreferenceController extends BasePreferenceControlle
 
     @Override
     public CharSequence getSummary() {
-        return SystemProperties.get(KEY_DEVICE_NAME_PROP,
+        String deviceBrand =  SystemProperties.get(KEY_DEVICE_NAME_PROP,
                 mContext.getString(R.string.unknown));
+        String deviceModel = Build.MODEL;
+        return deviceBrand + " | " + deviceModel;
     }
 }
