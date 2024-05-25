@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,7 +23,6 @@ import android.content.Intent;
 import android.content.pm.UserInfo;
 import android.os.Bundle;
 import android.os.UserManager;
-import android.view.View;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
@@ -36,8 +35,6 @@ import com.android.settings.deviceinfo.ManualPreferenceController;
 import com.android.settings.deviceinfo.RegulatoryInfoPreferenceController;
 import com.android.settings.deviceinfo.SafetyInfoPreferenceController;
 import com.android.settings.deviceinfo.UptimePreferenceController;
-import com.android.settings.deviceinfo.imei.ImeiInfoPreferenceController;
-import com.android.settings.deviceinfo.simstatus.SimStatusPreferenceController;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.widget.EntityHeaderController;
 import com.android.settingslib.core.AbstractPreferenceController;
@@ -50,97 +47,88 @@ import java.util.List;
 
 @SearchIndexable
 public class MyDeviceInfoFragment extends DashboardFragment
-        implements DeviceNamePreferenceController.DeviceNamePreferenceHost {
+    implements DeviceNamePreferenceController.DeviceNamePreferenceHost {
 
-    private static final String LOG_TAG = "MyDeviceInfoFragment";
-    private static final String KEY_MY_DEVICE_INFO_HEADER = "my_device_info_header";
+  private static final String LOG_TAG = "MyDeviceInfoFragment";
+  private static final String KEY_MY_DEVICE_INFO_HEADER = "my_device_info_header";
 
-    private BuildNumberPreferenceController mBuildNumberPreferenceController;
+  private BuildNumberPreferenceController mBuildNumberPreferenceController;
 
-    @Override
-    public int getMetricsCategory() {
-        return SettingsEnums.DEVICEINFO;
+  @Override
+  public int getMetricsCategory() {
+    return SettingsEnums.DEVICEINFO;
+  }
+
+  @Override
+  public int getHelpResource() {
+    return R.string.help_uri_about;
+  }
+
+  @Override
+  public void onAttach(Context context) {
+    super.onAttach(context);
+    use(DeviceNamePreferenceController.class).setHost(this /* parent */);
+    mBuildNumberPreferenceController = use(BuildNumberPreferenceController.class);
+    mBuildNumberPreferenceController.setHost(this /* parent */);
+  }
+
+  @Override
+  protected String getLogTag() {
+    return LOG_TAG;
+  }
+
+  @Override
+  protected int getPreferenceScreenResId() {
+    return R.xml.my_device_info;
+  }
+
+  @Override
+  protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
+    return buildPreferenceControllers(context, this, getSettingsLifecycle());
+  }
+
+  private static List<AbstractPreferenceController> buildPreferenceControllers(
+          Context context, MyDeviceInfoFragment fragment, Lifecycle lifecycle) {
+    final List<AbstractPreferenceController> controllers = new ArrayList<>();
+
+    controllers.add(new RegulatoryInfoPreferenceController(context));
+    controllers.add(new SafetyInfoPreferenceController(context));
+    controllers.add(new ManualPreferenceController(context));
+    controllers.add(new FeedbackPreferenceController(fragment, context));
+    controllers.add(new FccEquipmentIdPreferenceController(context));
+    controllers.add(new UptimePreferenceController(context, lifecycle));
+    controllers.add(new MistInfoPreferenceController(context));
+    return controllers;
+  }
+
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (mBuildNumberPreferenceController.onActivityResult(requestCode, resultCode, data)) {
+      return;
     }
+    super.onActivityResult(requestCode, resultCode, data);
+  }
 
-    @Override
-    public int getHelpResource() {
-        return R.string.help_uri_about;
-    }
+  @Override
+  public void showDeviceNameWarningDialog(String deviceName) {
+    DeviceNameWarningDialog.show(this);
+  }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        use(DeviceNamePreferenceController.class).setHost(this /* parent */);
-        mBuildNumberPreferenceController = use(BuildNumberPreferenceController.class);
-        mBuildNumberPreferenceController.setHost(this /* parent */);
-    }
+  public void onSetDeviceNameConfirm(boolean confirm) {
+    final DeviceNamePreferenceController controller = use(DeviceNamePreferenceController.class);
+    controller.updateDeviceName(confirm);
+  }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        initHeader();
-    }
+  /**
+   * For Search.
+   */
+  public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+      new BaseSearchIndexProvider(R.xml.my_device_info) {
 
-    @Override
-    protected String getLogTag() {
-        return LOG_TAG;
-    }
-
-    @Override
-    protected int getPreferenceScreenResId() {
-        return R.xml.my_device_info;
-    }
-
-    @Override
-    protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
-        return buildPreferenceControllers(context, this /* fragment */, getSettingsLifecycle());
-    }
-
-    private static List<AbstractPreferenceController> buildPreferenceControllers(
-            Context context, MyDeviceInfoFragment fragment, Lifecycle lifecycle) {
-        final List<AbstractPreferenceController> controllers = new ArrayList<>();
-
-        controllers.add(new RegulatoryInfoPreferenceController(context));
-        controllers.add(new SafetyInfoPreferenceController(context));
-        controllers.add(new ManualPreferenceController(context));
-        controllers.add(new FeedbackPreferenceController(fragment, context));
-        controllers.add(new FccEquipmentIdPreferenceController(context));
-        controllers.add(new UptimePreferenceController(context, lifecycle));
-        controllers.add(new MistInfoPreferenceController(context));
-
-        controllers.add(new MistInfoPreferenceController(context));
-        return controllers;
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (mBuildNumberPreferenceController.onActivityResult(requestCode, resultCode, data)) {
-            return;
+        @Override
+        public List<AbstractPreferenceController> createPreferenceControllers(
+            Context context) {
+          return buildPreferenceControllers(context, null, null);
         }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    public void showDeviceNameWarningDialog(String deviceName) {
-        DeviceNameWarningDialog.show(this);
-    }
-
-    public void onSetDeviceNameConfirm(boolean confirm) {
-        final DeviceNamePreferenceController controller = use(DeviceNamePreferenceController.class);
-        controller.updateDeviceName(confirm);
-    }
-
-    /**
-     * For Search.
-     */
-    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.my_device_info) {
-
-                @Override
-                public List<AbstractPreferenceController> createPreferenceControllers(
-                        Context context) {
-                    return buildPreferenceControllers(context, null /* fragment */,
-                            null /* lifecycle */);
-                }
-            };
+      };
 }
