@@ -21,7 +21,7 @@ import android.os.SystemProperties;
 import android.text.TextUtils;
 
 import androidx.annotation.VisibleForTesting;
-
+import android.os.Build;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.core.BasePreferenceController;
@@ -30,6 +30,7 @@ public class MistVersionPreferenceController extends BasePreferenceController {
 
     @VisibleForTesting
     static final String MIST_VERSION_PROPERTY = "ro.mist.version";
+    private static final String KEY_DEVICE_STATUS_PROP = "ro.mist.build_type";
 
     public MistVersionPreferenceController(Context context, String preferenceKey) {
         super(context, preferenceKey);
@@ -42,7 +43,10 @@ public class MistVersionPreferenceController extends BasePreferenceController {
 
     @Override
     public CharSequence getSummary() {
-        return SystemProperties.get(MIST_VERSION_PROPERTY,
+        String mistVersion = SystemProperties.get(MIST_VERSION_PROPERTY,
                 mContext.getString(R.string.device_info_default));
+        String deviceStatus = SystemProperties.get(KEY_DEVICE_STATUS_PROP,
+                mContext.getString(R.string.device_info_default));
+        return mistVersion + " | " + deviceStatus;
     }
 }
