@@ -55,7 +55,7 @@
         android:title="@string/mistify_dash_title"
         android:summary="@string/mistify_summary"
         android:icon="@drawable/ic_settings_mist"
-        android:order="-130"
+        android:order="-170"
         android:fragment="com.mist.mistify.Mistify"/>
 
     <com.android.settings.widget.HomepagePreference
