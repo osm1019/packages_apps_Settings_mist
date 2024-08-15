@@ -454,7 +454,7 @@ public class SettingsGateway {
             Settings.MemtagPageActivity.class.getName(),
             Settings.NavigationModeSettingsActivity.class.getName(),
             Settings.MistifySettingsActivity.class.getName(),
-            Settings.DevRunningServicesActivity.class.getName()
+            Settings.DevRunningServicesActivity.class.getName(),
             Settings.SleepModeActivity.class.getName(),
     };
 }

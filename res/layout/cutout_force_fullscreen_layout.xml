@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2023 The EverestOS Project
+     Copyright (C) 2021 AOSP-Krypton Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,14 +15,11 @@
      limitations under the License.
 -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/container"
-    style="@style/mistDashboardPreferenceBottom"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
-    <include
-        layout="@layout/mistos_dashboard_pref"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/apps_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="match_parent" />
 </FrameLayout>
