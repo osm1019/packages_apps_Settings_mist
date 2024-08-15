@@ -44,8 +44,8 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/phone_image"
-                    android:layout_width="100dp"
-                    android:layout_height="205dp"
+                    android:layout_width="150dp"
+                    android:layout_height="250dp"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="35dp"
                     app:cardElevation="0dp"

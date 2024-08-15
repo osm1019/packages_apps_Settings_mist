@@ -649,4 +649,8 @@
     <!-- face lockout -->
     <string name="face_lockout_title">Disable face lockout</string>
     <string name="face_lockout_summary">Deactivates 30 second timeout as well as permanent lockout after multiple failed face unlock attempts</string>
+
+    <!-- About Phone Strings -->
+    <string name="android_version">Android</string>
+    <string name="Mist_maintainer">Mist Maintainer</string>
 </resources>

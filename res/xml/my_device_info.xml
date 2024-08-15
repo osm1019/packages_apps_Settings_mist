@@ -25,6 +25,7 @@
     <com.android.settingslib.widget.LayoutPreference
         android:key="about_phone_info"
         android:layout="@layout/about_phone_info"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.controller.FirmwareHeaderPreferenceController"
         android:selectable="false" />
 
     <!-- Hardware info -->
