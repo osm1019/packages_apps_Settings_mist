@@ -47,7 +47,7 @@ public class FirmwareHeaderPreferenceController extends BasePreferenceController
     private static final int DELAY_TIMER_MILLIS = 500;
     private static final int ACTIVITY_TRIGGER_COUNT = 3;
 
-    private static final String KEY_DEVICE_MAINTAINER_PROP = "ro.mist.maintainer";
+    private static final String KEY_DEVICE_MAINTAINER_PROP = "ro.mistos.maintainer";
 
     private final UserManager mUserManager;
     private final long[] mHits = new long[ACTIVITY_TRIGGER_COUNT];

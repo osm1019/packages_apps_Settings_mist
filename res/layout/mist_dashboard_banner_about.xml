@@ -44,8 +44,8 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/phone_image"
-                    android:layout_width="150dp"
-                    android:layout_height="250dp"
+                    android:layout_width="100dp"
+                    android:layout_height="205dp"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="35dp"
                     app:cardElevation="0dp"
@@ -65,8 +65,8 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <ImageView
-                    android:layout_width="270dp"
-                    android:layout_height="100dp"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
                     android:layout_toEndOf="@id/phone_image"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
