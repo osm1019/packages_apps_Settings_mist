@@ -19,21 +19,27 @@ package com.android.settings.homepage;
 import static com.android.settings.search.actionbar.SearchMenuController.NEED_SEARCH_ICON_IN_ACTION_BAR;
 import static com.android.settingslib.search.SearchIndexable.MOBILE;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.settings.SettingsEnums;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.widget.TextView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.os.UserHandle;
 
 import androidx.annotation.VisibleForTesting;
 import android.view.View;
-
+import android.widget.LinearLayout;
 import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
@@ -44,6 +50,7 @@ import androidx.window.embedding.SplitController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.settings.R;
+import android.app.settings.SettingsEnums;
 import com.android.settings.Utils;
 import com.android.settings.activityembedding.ActivityEmbeddingRulesController;
 import com.android.settings.activityembedding.ActivityEmbeddingUtils;
@@ -57,6 +64,10 @@ import com.android.settings.widget.HomepagePreferenceLayoutHelper.HomepagePrefer
 import com.android.settingslib.core.instrumentation.Instrumentable;
 import com.android.settingslib.drawer.Tile;
 import com.android.settingslib.search.SearchIndexable;
+import com.android.settingslib.widget.LayoutPreference;
+import com.android.settings.widget.EntityHeaderController;
+
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -64,12 +75,14 @@ import java.util.Random;
 
 @SearchIndexable(forTarget = MOBILE)
 public class TopLevelSettings extends DashboardFragment implements SplitLayoutListener,
-        PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
+        View.OnClickListener, PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     private static final String TAG = "TopLevelSettings";
     private static final String KEY_MISTIFY = "top_level_mistify";
     private static final String SAVED_HIGHLIGHT_MIXIN = "highlight_mixin";
     private static final String PREF_KEY_SUPPORT = "top_level_support";
+
+    private int mDashBoardStyle;
 
     private boolean mIsEmbeddingActivityEnabled;
     private TopLevelHighlightMixin mHighlightMixin;
@@ -78,6 +91,10 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
     private boolean mFirstStarted = true;
     private ActivityEmbeddingController mActivityEmbeddingController;
     private boolean gAppsExists;
+
+    private LayoutPreference mDashboardHeader;
+	private LinearLayout mAboutCard, mDisplayCard;
+	private MaterialCardView mMistCard;
 
     public TopLevelSettings() {
         final Bundle args = new Bundle();
@@ -95,7 +112,14 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
 
     @Override
     protected int getPreferenceScreenResId() {
-        return R.xml.top_level_settings;
+       switch (mDashBoardStyle) {
+           case 0:
+               return R.xml.top_level_settings;
+           case 1:
+               return R.xml.top_level_settings_mist;
+           default:
+               return R.xml.top_level_settings;
+        }
     }
 
     @Override
@@ -123,6 +147,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
         HighlightableMenu.fromXml(context, getPreferenceScreenResId());
         use(SupportPreferenceController.class).setActivity(getActivity());
         updateLabSummary();
+        setDashboardStyle(context);
     }
 
     @Override
@@ -173,8 +198,16 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        mIsEmbeddingActivityEnabled =
-                ActivityEmbeddingUtils.isEmbeddingActivityEnabled(getContext());
+        if (mDashBoardStyle == 1) {
+    mDashboardHeader = findPreference("dashboard_header");
+    mAboutCard = mDashboardHeader.findViewById(R.id.dashboard_about);
+    mDisplayCard = mDashboardHeader.findViewById(R.id.dashboard_diaplay);
+    mMistCard = mDashboardHeader.findViewById(R.id.dashboard_labs);
+    mAboutCard.setOnClickListener(this);
+    mDisplayCard.setOnClickListener(this);
+    mMistCard.setOnClickListener(this);
+        }
+    ActivityEmbeddingUtils.isEmbeddingActivityEnabled(getContext());
         if (!mIsEmbeddingActivityEnabled) {
             return;
         }
@@ -264,6 +297,8 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             final Preference preference = screen.getPreference(i);
 
             String key = preference.getKey();
+        switch (mDashBoardStyle) {
+            case 0:
             if (key.equals("top_level_network")
             	|| key.equals("top_level_display")
             	|| key.equals("top_level_apps")
@@ -290,8 +325,77 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             } else {
                 preference.setLayoutResource(R.layout.mist_dashboard_preference_bottom);
             }
+            break;
+         case 1:
+            if (key.equals("top_level_network")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_top);
+            }
+            if (key.equals("top_level_connected_devices")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_bot);
+            }
+            if (key.equals("top_level_apps")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_top);
+            }
+            if (key.equals("top_level_notifications")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_mid);
+            }
+            if (key.equals("top_level_sound")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_bot);
+            }
+            if (key.equals("top_level_wallpaper")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_sin);
+            }
+            if (key.equals("top_level_battery")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_top);
+            }
+            if (key.equals("top_level_storage")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_bot);
+	    }
+            if (key.equals("top_level_accessibility")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_top);
+            }
+            if (key.equals("top_level_safety_center")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_mid);
+            }
+            if (key.equals("top_level_security")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_mid);
+            }
+            if (key.equals("top_level_privacy")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_mid);
+	    }
+            if (key.equals("top_level_location")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_bot);
+            }
+            if (key.equals("top_level_emergency")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_mid);
+            }
+            if (key.equals("top_level_accounts")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_top);
+            }
+            if (key.equals("top_level_system")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_bot);
+            }
+            if (key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.settings.TopLevelSettingsActivity")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_mid);
+            }
+            if (key.equals("dashboard_tile_pref_com.google.android.gms.app.settings.GoogleSettingsIALink")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_mid);
+            }
+            if (key.equals("top_level_google")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_mid);
+            }
+            if (key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.home.TopLevelSettingsActivity")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_mid);
+            }
+            if (key.equals("top_level_wellbeing")){
+                preference.setLayoutResource(R.layout.mist_homepage_card_mid);
+            }
+            break;
+         default:
+            break;
        }
     }
+}
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -360,6 +464,24 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             }
         });
     }
+
+    @Override
+	public void onClick(View view) {
+		if (view == mAboutCard) {
+			setClickActivity("MyDeviceInfoActivity");
+		} else if (view == mDisplayCard) {
+			setClickActivity("DisplaySettingsActivity");
+		} else if (view == mMistCard) {
+            setClickActivity("MistifySettingsActivity");
+		}
+	}
+
+	private void setClickActivity(String activity) {
+		Context context = getContext();
+		Intent intent = new Intent(Intent.ACTION_MAIN);
+		intent.setComponent(new ComponentName("com.android.settings", "com.android.settings.Settings$" + activity));
+		context.startActivity(intent);
+	}
 
     /** Returns a {@link TopLevelHighlightMixin} that performs highlighting */
     public TopLevelHighlightMixin getHighlightMixin() {
@@ -471,4 +593,8 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
                     return false;
                 }
             };
+            private void setDashboardStyle(Context context) {
+                    mDashBoardStyle = Settings.System.getIntForUser(context.getContentResolver(),
+                    Settings.System.SETTINGS_DASHBOARD_STYLE, 0, UserHandle.USER_CURRENT);
+   }
 }

@@ -33,6 +33,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.ApplicationInfoFlags;
 import android.content.pm.UserInfo;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Process;
@@ -68,6 +70,8 @@ import androidx.window.embedding.ActivityEmbeddingController;
 import androidx.window.embedding.SplitRule;
 import androidx.window.java.embedding.SplitControllerCallbackAdapter;
 
+import com.android.internal.util.UserIcons;
+
 import com.android.settings.R;
 import com.android.settings.Settings;
 import com.android.settings.SettingsActivity;
@@ -81,6 +85,7 @@ import com.android.settings.homepage.contextualcards.ContextualCardsFragment;
 import com.android.settings.overlay.FeatureFactory;
 import com.android.settings.safetycenter.SafetyCenterManagerWrapper;
 import com.android.settingslib.Utils;
+import com.android.settingslib.drawable.CircleFramedDrawable;
 import com.android.settingslib.core.lifecycle.HideNonSystemOverlayMixin;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
@@ -263,7 +268,7 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         }
 
 	final View root = findViewById(R.id.settings_homepage_container);
-	final TextView textView = root.findViewById(R.id.user_title);
+	final TextView textView = root.findViewById(R.id.username);
 	final TextView homepageTitle = root.findViewById(R.id.homepage_title);
 	final TextView searchTextView = root.findViewById(R.id.search_action_bar_title);
 
