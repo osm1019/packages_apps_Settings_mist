@@ -18,12 +18,25 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/about_settings"
     settings:keywords="@string/keywords_android_version">
 
      <com.android.settingslib.widget.LayoutPreference
         android:layout="@layout/mist_dashboard_banner_about"
         android:key="mist_banner" />
+
+    <!-- MistOS Maintainer -->
+    <Preference
+        android:key="MistOS_maintainer"
+        android:title="@string/MistOS_maintainer"
+        android:icon="@drawable/ic_mist_team"
+        android:summary="@string/summary_placeholder"
+        settings:layout="@layout/mist_pref_card_sin_accent"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.MistOSMaintainerPreferenceController"/>
+
+
 
     <!-- Device Name -->
     <Preference
@@ -52,19 +65,9 @@
          android:title="@string/mist_version"
          android:icon="@drawable/ic_settings_system_dashboard_acc"
          android:summary="@string/summary_placeholder"
-         settings:layout="@layout/mist_dashboard_preference_middle"
+         settings:layout="@layout/mist_dashboard_preference_bottom"
          settings:enableCopying="true"
          settings:controller="com.android.settings.deviceinfo.firmwareversion.MistVersionPreferenceController"/>
-
-    <!-- MistOS Maintainer -->
-    <Preference
-        android:key="MistOS_maintainer"
-        android:title="@string/MistOS_maintainer"
-        android:icon="@drawable/ic_maintainer"
-        android:summary="@string/summary_placeholder"
-        settings:layout="@layout/mist_dashboard_preference_bottom"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.MistOSMaintainerPreferenceController"/>
 
     <!-- Security patch -->
     <Preference
