@@ -268,7 +268,7 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         }
 
 	final View root = findViewById(R.id.settings_homepage_container);
-	final TextView textView = root.findViewById(R.id.username);
+	final TextView textView = root.findViewById(R.id.user_title);
 	final TextView homepageTitle = root.findViewById(R.id.homepage_title);
 	final TextView searchTextView = root.findViewById(R.id.search_action_bar_title);
 
