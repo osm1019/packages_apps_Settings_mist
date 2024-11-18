@@ -73,10 +73,19 @@
     <Preference
         android:key="date_time_settings"
         android:title="@string/date_and_time"
-        android:icon="@drawable/ic_settings_date_time"
+        android:icon="@drawable/ic_custom_settings_location"
         android:order="-240"
         android:fragment="com.android.settings.datetime.DateTimeSettings"
         settings:controller="com.android.settings.datetime.DateTimePreferenceController"/>
+
+    <SwitchPreferenceCompat
+        android:title="@string/location_indicator_settings_title"
+        android:summary="@string/location_indicator_settings_description"
+        android:icon="@drawable/ic_settings_location"
+        android:defaultValue="true"
+        android:order="-239"
+        android:key="location_indicator_settings"
+        settings:controller="com.android.settings.location.LocationIndicatorsPreferenceController"/>
 
     <!-- System updates -->
     <Preference
