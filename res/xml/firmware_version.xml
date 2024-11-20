@@ -21,6 +21,12 @@
     android:title="@string/firmware_version"
     settings:keywords="@string/keywords_android_version">
 
+    <!-- Mist logo -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:layout="@layout/mist_logo"
+        android:key="mist_logo"
+        android:selectable="false" />
+
     <!-- Android version -->
     <Preference
         android:key="os_firmware_version"
