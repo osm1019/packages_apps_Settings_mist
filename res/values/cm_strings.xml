@@ -240,4 +240,7 @@
 
     <!-- MistOS  Maintainer -->
     <string name="MistOS_maintainer">MistOS Maintainer</string>
+
+    <!-- About phone screen, build date -->
+    <string name="about_device_name">Device|Model</string>
 </resources>
