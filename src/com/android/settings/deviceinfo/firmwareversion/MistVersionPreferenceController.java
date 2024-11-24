@@ -22,7 +22,7 @@ public class MistVersionPreferenceController extends BasePreferenceController {
 
     @Override
     public int getAvailabilityStatus() {
-        return !TextUtils.isEmpty(SystemProperties.get(MIST_VERSION_PROPERTY)) && !TextUtils.isEmpty(SystemProperties.get(MIST_BUILDTYPE_PROPERTY))
+        return !TextUtils.isEmpty(SystemProperties.get(MIST_VERSION_PROPERTY)) && !TextUtils.isEmpty(SystemProperties.get(MIST_CODENAME_PROPERTY))
                 ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
     }
 
