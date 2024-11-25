@@ -23,6 +23,7 @@ import com.android.settings.core.BasePreferenceController;
 public class MistOSMaintainerPreferenceController extends BasePreferenceController {
     private static final String TAG = "MistOSMaintainerPreferenceController";
     private static final String ROM_PROPERTY = "ro.mistos.maintainer";
+    private static final String KEY_DEVICE_STATUS_PROP = "ro.mist.buildtype";
     public MistOSMaintainerPreferenceController(Context context, String key) {
         super(context, key);
     }
@@ -30,8 +31,11 @@ public class MistOSMaintainerPreferenceController extends BasePreferenceControll
         return AVAILABLE;
     }
     public CharSequence getSummary() {
-        String rom = SystemProperties.get(ROM_PROPERTY,
-                this.mContext.getString(R.string.device_info_default));
-        return rom;
+        String maintainer = SystemProperties.get(ROM_PROPERTY,
+                mContext.getString(R.string.device_info_default));
+        String maintainerStatus = SystemProperties.get(KEY_DEVICE_STATUS_PROP,
+                mContext.getString(R.string.device_info_default));
+
+        return maintainer + " | " + maintainerStatus;
     }
 }
