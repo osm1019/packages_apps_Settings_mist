@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2021 DerpFest
+<!--
+     Copyright 2024 HorizonDroid
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -10,15 +11,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:gravity="center"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="130dp">
- <ImageView
-        android:layout_width="460dp"
-        android:layout_height="150dp"
-        android:src="@drawable/mist"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside" />
-</LinearLayout>
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
+    <item
+        android:color="?androidprv:attr/colorSurface" />
+</selector>
