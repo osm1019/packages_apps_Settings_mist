@@ -34,6 +34,21 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:order="-135"
+        android:key="top_level_mistify_category"
+        android:layout="@layout/settingslib_preference_category_no_title">
+        <com.android.settings.widget.HomepagePreference
+            android:fragment="com.rising.settings.PersonalizationsFragment"
+            android:icon="@drawable/ic_settings_cogs"
+            android:key="top_level_personalizations"
+            android:order="-50"
+            android:title="@string/rising_settings_title"
+            android:summary="@string/rising_settings_summary"
+            settings:controller="com.rising.settings.TopLevelSettingsPreferenceController"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:order="-130"
         android:key="top_level_connectivity_category"
         android:layout="@layout/settingslib_preference_category_no_title">
@@ -62,15 +77,6 @@
         android:order="-125"
         android:key="top_level_personalize_category"
         android:layout="@layout/settingslib_preference_category_no_title">
-
-        <com.android.settings.widget.HomepagePreference
-            android:fragment="com.rising.settings.PersonalizationsFragment"
-            android:icon="@drawable/ic_settings_cogs"
-            android:key="top_level_personalizations"
-            android:order="-63"
-            android:title="@string/rising_settings_title"
-            android:summary="@string/rising_settings_summary"
-            settings:controller="com.rising.settings.TopLevelSettingsPreferenceController"/>
 
         <com.android.settings.widget.HomepagePreference
             android:fragment="com.android.settings.DisplaySettings"
