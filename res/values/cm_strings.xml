@@ -243,4 +243,5 @@
 
     <!-- About phone screen, build date -->
     <string name="about_device_name">Device|Model</string>
+    <string name="config_face_enroll_traffic_light_package"/>
 </resources>
