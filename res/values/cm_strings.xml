@@ -20,6 +20,13 @@
     <string name="mist_version">MistOS version</string>
     <string name="mist_version_default">Unknown</string>
     <string name="keywords_mist_version">MistOS version, mist version</string>
+    <string name="top_header_device_name">Device Name</string>
+
+    <!-- About page -->
+    <string name="battery">Battery</string>
+    <string name="display">Display</string>
+    <string name="storage">Storage</string>
+    <string name="chipset">Processor</string>
 
     <!-- Reality Display Engine -->
     <string name="display_engine_category">Display Engine</string>

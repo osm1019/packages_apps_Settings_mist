@@ -532,4 +532,6 @@
     <dimen name="zen_mode_circular_icon_margin_between">4dp</dimen>
     <dimen name="zen_mode_circular_icon_margin_vertical">8dp</dimen>
     <dimen name="zen_mode_circular_icon_text_size">18dp</dimen>
+
+    <dimen name="card_radius">20dp</dimen>
 </resources>
