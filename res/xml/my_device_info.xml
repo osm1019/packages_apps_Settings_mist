@@ -65,7 +65,7 @@
     <!-- Device name -->
         <com.android.settings.widget.ValidatedEditTextPreference
             android:key="device_name"
-            android:order="1"
+            android:order="-994"
             android:icon="@drawable/ic_mist_device"
             android:title="@string/my_device_info_device_name_preference_title"
             android:summary="@string/summary_placeholder"
